@@ -19,14 +19,17 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.BottomSheetScaffoldState
 import androidx.compose.material3.Button
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.OutlinedButton
@@ -88,7 +91,7 @@ fun SheetHeader(modifier: Modifier = Modifier) {
             text = stringResource(R.string.bottom_sheet_headline),
             style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
         )
-        Divider()
+        HorizontalDivider()
     }
 }
 
@@ -100,7 +103,11 @@ fun SheetForm(
     onSubmit: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier.padding(horizontal = 16.dp)) {
+    Column(
+        modifier
+            .padding(horizontal = 16.dp)
+            .padding(WindowInsets.navigationBars.asPaddingValues())
+    ) {
         TextInputRow(
             inputLabel = stringResource(R.string.juice_name),
             fieldValue = juice.name,

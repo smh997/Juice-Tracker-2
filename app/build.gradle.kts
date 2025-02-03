@@ -17,7 +17,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp") version "2.1.0-1.0.29"
+    id("com.google.devtools.ksp") version "2.1.10-1.0.29"
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
@@ -58,9 +58,9 @@ android {
 
 dependencies {
 
-    implementation(platform("androidx.compose:compose-bom:2024.12.01"))
+    implementation(platform("androidx.compose:compose-bom:2025.01.01"))
 
-    implementation("androidx.activity:activity-compose:1.9.3")
+    implementation("androidx.activity:activity-compose:1.10.0")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
@@ -70,6 +70,9 @@ dependencies {
     implementation("androidx.room:room-ktx:${rootProject.extra["room_version"]}")
     implementation("androidx.room:room-runtime:${rootProject.extra["room_version"]}")
     implementation("com.google.android.material:material:1.12.0")
+
+    implementation("com.google.android.gms:play-services-ads:23.6.0")
+
     ksp("androidx.room:room-compiler:${rootProject.extra["room_version"]}")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
